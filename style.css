@@ -1,0 +1,241 @@
+:root {
+    --primary-color: black;
+    --secondary-color: rgb(255, 147, 45);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+}
+
+body {
+    background-image: url("bg3.jpg");
+    background-position: center;
+    background-size: cover;
+    font-family: 'Kanit', sans-serif;;
+}
+
+.header {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title_container h1 {
+    font-size: 3rem;
+}
+
+.score_container {
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    right: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    animation: scoreContainer 1000ms;
+}
+
+.memory_container {
+    width: 750px;
+    height: auto;
+    display: grid;
+    grid-template-areas: "item item item item"
+    "item item item item"
+    "item item item item";
+    margin-top: 100px;
+    margin-bottom: 50px;
+    gap: 10px;
+}
+
+.memory_item {
+    width: 180px;
+    height: 180px;
+    background-color: var(--secondary-color);
+    border-radius: 15px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: "item";
+    cursor: pointer;
+}
+
+.memory_item .question-mark {
+    font-size: 5rem;
+    animation: memoryItem 0.3s;
+}
+
+.memory_item .flippedCard {
+    font-size: 5rem;
+}
+
+.end_game_background {
+    width: 100%;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.end_game_container {
+    width: 600px;
+    height: 300px;
+    background-color: white;
+    color: black;
+    opacity: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 20;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 15px;
+    display: none;
+}
+
+.end_game_container h2 {
+    font-size: 2rem;
+}
+
+.end_game_container button {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 15px;
+    border-style: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.end_game_background.active {
+    display: flex;
+}
+
+.end_game_container {
+    display: flex;
+    animation: endGame 0.3s;
+}
+
+/* ANIMATIONS */
+
+@keyframes endGame {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scoreContainer {
+    from {
+        transform: translateX(200%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes memoryItem {
+    ffrom {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+/* MEDIA SCREENS */
+
+@media screen and (max-width: 815px) {
+    .memory_container {
+        width: 640px;
+        margin-top: 150px;
+        gap: 10px;
+    }
+
+    .memory_item {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .memory_container {
+        width: 480px;
+        margin-top: 70px;
+        margin-bottom: 50px;
+        grid-template-areas: "item item item"
+                            "item item item"
+                            "item item item"
+                            "item item item";
+    }
+
+    .memory_item {
+        width: 150px;
+        height: 150px;
+    }
+
+    .title_container h1 {
+        font-size: 2.5rem;
+        margin-right: 150px;
+    }
+}
+
+
+@media screen and (max-width: 530px) {
+    .memory_container {
+        width: 390px;
+        margin-top: 70px;
+        margin-bottom: 50px;
+        grid-template-areas: "item item item"
+                            "item item item"
+                            "item item item"
+                            "item item item";
+    }
+
+    .memory_item {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .title_container h1 {
+        font-size: 2rem;
+        margin-right: 150px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .memory_container {
+        width: 330px;
+        margin-top: 80px;
+        margin-bottom: 50px;
+        grid-template-areas: "item item item"
+                            "item item item"
+                            "item item item"
+                            "item item item";
+    }
+
+    .memory_item {
+        width: 100px;
+        height: 100px;
+    }
+    
+}
